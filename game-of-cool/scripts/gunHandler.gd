@@ -2,6 +2,7 @@ extends RayCast2D
 
 @export var raycast: Node
 @export var tracer: Node
+@export var particle: Node
 
 var bulletShooted = false
 var canShoot = true
@@ -27,6 +28,7 @@ func _input(event):
 			else:
 				$gunFire3.play()
 			bulletsLeft -= 1
+			particle.spawnparticles(Vector2(position), Vector2(get_collision_point()))
 			print("Shot fired! You shot" + str(get_collider()))
 		else:
 			$gunDryfire.play()
