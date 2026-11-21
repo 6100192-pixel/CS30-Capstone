@@ -33,18 +33,16 @@ gravity = Vector3(0, 0, 0)
 [sub_resource type="GDScript" id="GDScript_5jxly"]
 script/source = "extends GPUParticles2D
 
+func spawnparticles(start: Vector2, target: Vector2) -> void:
+	global_position = start
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+	var direction = (target - start).normalized()
 
+	var material = process_material as ParticleProcessMaterial
+	material.direction = Vector3(direction.x, direction.y, 0)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func spawnparticles(vector):
-	
+	restart()
+	emitting = true
 "
 
 [node name="Game" type="Node2D" unique_id=2094005643]
