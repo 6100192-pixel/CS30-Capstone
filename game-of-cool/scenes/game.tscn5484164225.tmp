@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://4uf18kitqhnm"]
+
+[ext_resource type="Texture2D" uid="uid://dv0rc1ocxfrmh" path="res://assets/gray bg.png" id="1_iywne"]
+[ext_resource type="PackedScene" uid="uid://bjemun2ne6iaj" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://dhedhgv1us288" path="res://assets/background.png" id="2_gee14"]
+[ext_resource type="AudioStream" uid="uid://dr8uvv6uvx1ct" path="res://assets/Stridsfordon 9040_56 (Bonus).mp3" id="2_p57ef"]
+[ext_resource type="Script" uid="uid://bqwx640feojdx" path="res://scenes/healpad.gd" id="3_kvpfn"]
+[ext_resource type="Script" uid="uid://chpga71kgyv1g" path="res://scenes/camera_2d.gd" id="3_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://bn1bdnoxcjuvm" path="res://assets/medicine.jpg" id="3_vtaks"]
+[ext_resource type="Script" uid="uid://lbnfs8rot81u" path="res://scenes/bgm.gd" id="5_iywne"]
+[ext_resource type="Script" uid="uid://c1u6akyynfwli" path="res://scenes/ouchypad.gd" id="5_kvuet"]
+[ext_resource type="Script" uid="uid://gm75ahdrp7gr" path="res://scenes/ammoDisplay.gd" id="6_p57ef"]
+[ext_resource type="Texture2D" uid="uid://bsya3rmm4emu8" path="res://assets/ouchywawa.jpg" id="6_trtic"]
+[ext_resource type="FontFile" uid="uid://codlqwyuxfcu7" path="res://assets/Saira/Saira-VariableFont_wdth,wght.ttf" id="6_u5sy4"]
+[ext_resource type="Script" uid="uid://mmu7864nbnp1" path="res://scenes/healthBar.gd" id="9_0tnpc"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mljij"]
+normal = Vector2(1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hqvs"]
+size = Vector2(266, 268.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mljij"]
+size = Vector2(148, 104)
+
+[node name="Game" type="Node2D" unique_id=2094005643]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1892922169]
+scale = Vector2(2.574944, 1.4474273)
+texture = ExtResource("1_iywne")
+centered = false
+
+[node name="WorldBorders" type="StaticBody2D" parent="." unique_id=6621326]
+
+[node name="LeftWall" type="CollisionShape2D" parent="WorldBorders" unique_id=111748910]
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_mljij")
+
+[node name="TopWall" type="CollisionShape2D" parent="WorldBorders" unique_id=287428641]
+shape = SubResource("WorldBoundaryShape2D_mljij")
+
+[node name="RightWall" type="CollisionShape2D" parent="WorldBorders" unique_id=665247126]
+position = Vector2(1152, 648)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_mljij")
+
+[node name="BottomWall" type="CollisionShape2D" parent="WorldBorders" unique_id=1270466025]
+position = Vector2(1152, 648)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_mljij")
+
+[node name="LevelGeometry" type="StaticBody2D" parent="." unique_id=1288971853]
+
+[node name="wall" type="CollisionShape2D" parent="LevelGeometry" unique_id=169685182]
+position = Vector2(582, 325)
+shape = SubResource("RectangleShape2D_0hqvs")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelGeometry/wall" unique_id=128848469]
+position = Vector2(-0.49997973, -0.5000191)
+scale = Vector2(0.36376026, 0.6480582)
+texture = ExtResource("2_gee14")
+
+[node name="healpad" type="Area2D" parent="LevelGeometry" unique_id=1397710171]
+position = Vector2(174, 81)
+script = ExtResource("3_kvpfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelGeometry/healpad" unique_id=1080970691]
+position = Vector2(64, 42)
+shape = SubResource("RectangleShape2D_mljij")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelGeometry/healpad/CollisionShape2D" unique_id=245357007]
+position = Vector2(-0.7499957, 0.25)
+scale = Vector2(0.22050148, 0.23340708)
+texture = ExtResource("3_vtaks")
+
+[node name="ouchypad" type="Area2D" parent="LevelGeometry" unique_id=584252739]
+position = Vector2(178, 453)
+script = ExtResource("5_kvuet")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelGeometry/ouchypad" unique_id=1758820480]
+position = Vector2(64, 42)
+shape = SubResource("RectangleShape2D_mljij")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelGeometry/ouchypad/CollisionShape2D" unique_id=799619608]
+position = Vector2(0.5, -1.4999905)
+scale = Vector2(0.20189701, 0.25362316)
+texture = ExtResource("6_trtic")
+
+[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=825431690]
+stream = ExtResource("2_p57ef")
+volume_db = -10.0
+pitch_scale = 0.7
+parameters/looping = true
+script = ExtResource("5_iywne")
+
+[node name="Player" parent="." unique_id=1133249345 instance=ExtResource("1_uwrxv")]
+position = Vector2(90, 345)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1015321649]
+position = Vector2(581, 325)
+scale = Vector2(0.5, 0.5)
+zoom = Vector2(1.6, 1.6)
+position_smoothing_enabled = true
+position_smoothing_speed = 30.0
+script = ExtResource("3_lnu2h")
+
+[node name="GunGUI" type="Label" parent="Camera2D" unique_id=1557935395]
+custom_minimum_size = Vector2(100, 100)
+custom_maximum_size = Vector2(200, 200)
+offset_left = -1114.0
+offset_top = 452.0
+offset_right = -914.0
+offset_bottom = 609.0
+offset_transform_enabled = true
+theme_override_fonts/font = ExtResource("6_u5sy4")
+theme_override_font_sizes/font_size = 48
+text = "(bullets)/(spare bullets)
+(equipped weapon)"
+script = ExtResource("6_p57ef")
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="Camera2D" unique_id=1064928492]
+self_modulate = Color(0, 1, 0, 1)
+offset_left = -342.0
+offset_top = 486.0
+offset_right = 350.0
+offset_bottom = 538.0
+rounded = true
+script = ExtResource("9_0tnpc")
