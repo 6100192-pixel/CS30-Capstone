@@ -1,8 +1,6 @@
 extends Area2D
 
-@onready var ouchypad: Area2D = $"."
-@onready var player: CharacterBody2D = $"../../Player"
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@export var player: Node
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

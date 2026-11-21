@@ -75,9 +75,11 @@ sprite_frames = SubResource("SpriteFrames_0hqvs")
 animation = &"walk"
 autoplay = "idle"
 
-[node name="equippedWeapon" type="RayCast2D" parent="." unique_id=818989030]
+[node name="equippedWeapon" type="RayCast2D" parent="." unique_id=818989030 node_paths=PackedStringArray("raycast", "tracer")]
 target_position = Vector2(2000, 0)
 script = ExtResource("3_qhqgy")
+raycast = NodePath(".")
+tracer = NodePath("render")
 
 [node name="gunFire1" type="AudioStreamPlayer2D" parent="equippedWeapon" unique_id=378768799]
 stream = ExtResource("4_smehm")

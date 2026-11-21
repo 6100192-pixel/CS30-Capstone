@@ -1,7 +1,7 @@
 extends RayCast2D
 
-@onready var raycast = $equippedWeapon
-@onready var tracer = $render
+@export var raycast: Node
+@export var tracer: Node
 
 var bulletShooted = false
 var canShoot = true
