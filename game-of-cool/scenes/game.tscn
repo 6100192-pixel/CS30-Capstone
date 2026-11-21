@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://codlqwyuxfcu7" path="res://assets/Saira/Saira-VariableFont_wdth,wght.ttf" id="6_u5sy4"]
 [ext_resource type="AudioStream" uid="uid://b3j2uc2doaikj" path="res://assets/Ed Sheeran - Shape of You (Lyrics) 4.mp3" id="7_kvuet"]
 [ext_resource type="Script" uid="uid://mmu7864nbnp1" path="res://scripts/healthBar.gd" id="9_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://dkvqfsmvtk0kx" path="res://assets/player.png" id="14_trtic"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mljij"]
 normal = Vector2(1, 0)
@@ -22,6 +23,29 @@ size = Vector2(266, 268.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mljij"]
 size = Vector2(148, 104)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7mu4b"]
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+direction = Vector3(0, -10, 0)
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="GDScript" id="GDScript_5jxly"]
+script/source = "extends GPUParticles2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func spawnparticles(vector):
+	
+"
 
 [node name="Game" type="Node2D" unique_id=2094005643]
 
@@ -133,3 +157,10 @@ step = 0.0
 rounded = true
 script = ExtResource("9_0tnpc")
 player = NodePath("../../Player")
+
+[node name="Muzzleflash" type="GPUParticles2D" parent="." unique_id=854332178]
+emitting = false
+texture = ExtResource("14_trtic")
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_7mu4b")
+script = SubResource("GDScript_5jxly")
