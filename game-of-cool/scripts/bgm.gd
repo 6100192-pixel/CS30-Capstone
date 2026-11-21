@@ -9,5 +9,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if player.currentHealth < 30:
 		pitch_scale = 0.7
+	elif player.currentHealth < 50:
+		pitch_scale = 1
 	else:
-		pitch_scale = 1.0
+		pitch_scale = 1.5
