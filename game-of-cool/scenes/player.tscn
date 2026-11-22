@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bjemun2ne6iaj"]
 
 [ext_resource type="Script" uid="uid://op68j2cckl52" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://cft283xnfgplx" path="res://assets/krill_yourself.png" id="2_smehm"]
+[ext_resource type="Texture2D" uid="uid://cogc6ubes8icn" path="res://assets/playerPistolSpritesheet.png" id="2_y4r1p"]
 [ext_resource type="Script" uid="uid://7bx3tq3uosvq" path="res://scripts/gunHandler.gd" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://yjf0vwc4xoi8" path="res://assets/Item_handgun_fire1.wav.mp3" id="4_smehm"]
 [ext_resource type="AudioStream" uid="uid://c6awn0ebq8knp" path="res://assets/Item_handgun_fire2.wav.mp3" id="5_ur7pv"]
@@ -14,31 +14,31 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_mljij"]
 radius = 16.124516
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
-atlas = ExtResource("2_smehm")
-region = Rect2(0, 0, 163, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
-atlas = ExtResource("2_smehm")
-region = Rect2(0, 0, 163, 200)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
-atlas = ExtResource("2_smehm")
-region = Rect2(163, 0, 163, 200)
+atlas = ExtResource("2_y4r1p")
+region = Rect2(330, 0, 165, 207)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
-atlas = ExtResource("2_smehm")
-region = Rect2(326, 0, 163, 200)
+atlas = ExtResource("2_y4r1p")
+region = Rect2(0, 0, 165, 207)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
-atlas = ExtResource("2_smehm")
-region = Rect2(489, 0, 163, 200)
+atlas = ExtResource("2_y4r1p")
+region = Rect2(165, 0, 165, 207)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+atlas = ExtResource("2_y4r1p")
+region = Rect2(330, 0, 165, 207)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
+atlas = ExtResource("2_y4r1p")
+region = Rect2(495, 0, 165, 207)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0hqvs"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ur7pv")
+"texture": SubResource("AtlasTexture_d2wvv")
 }],
 "loop": 1,
 "name": &"idle",
@@ -46,16 +46,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y4r1p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d2wvv")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_3v2ag")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jej6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ej7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oprun")
 }],
 "loop": 1,
 "name": &"walk",
