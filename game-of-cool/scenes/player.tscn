@@ -83,10 +83,13 @@ func _ready() -> void:
 		process_material = process_material.duplicate()
 
 func spawnparticles(start: Vector2, target: Vector2) -> void:
-	global_position = start
-	
-	var mat = process_material as ParticleProcessMaterial
-	
+	position = start
+
+	var direction = (target - start).normalized()
+
+	var material = process_material as ParticleProcessMaterial
+	material.direction = Vector3(direction.x, direction.y, 0)
+
 	
 	
 	restart()
@@ -153,7 +156,7 @@ rotation = 1.5707964
 scale = Vector2(0.015, 0.015)
 emitting = false
 texture = SubResource("CompressedTexture2D_ur7pv")
-lifetime = 0.09999999999999999
+lifetime = 0.1
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_d2wvv")
 script = SubResource("GDScript_3v2ag")
