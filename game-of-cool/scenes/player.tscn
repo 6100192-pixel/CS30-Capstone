@@ -9,7 +9,6 @@
 [ext_resource type="AudioStream" uid="uid://dqgqunyhce1oa" path="res://assets/Item_handgun_rack.wav.mp3" id="7_d2wvv"]
 [ext_resource type="AudioStream" uid="uid://6yo1t2n1smgi" path="res://assets/Item_handgun_reload_onehand.wav.mp3" id="8_3v2ag"]
 [ext_resource type="AudioStream" uid="uid://ctf8axmu8slo8" path="res://assets/item_handgun_empty.mp3" id="9_ur7pv"]
-[ext_resource type="Texture2D" uid="uid://ci1hsisdwdeco" path="res://assets/muzleflash.webp" id="10_y4r1p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mljij"]
 radius = 16.124516
@@ -62,6 +61,9 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ur7pv"]
+load_path = "res://.godot/imported/muzleflash.webp-cd912eb889c17ae3c0f66ebf424b1737.ctex"
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d2wvv"]
 particle_flag_disable_z = true
 particle_flag_damping_as_friction = true
@@ -80,14 +82,12 @@ func _ready() -> void:
 	if process_material:
 		process_material = process_material.duplicate()
 
-func spawn_particles(start: Vector2, target: Vector2) -> void:
+func spawnparticles(start: Vector2, target: Vector2) -> void:
 	global_position = start
 	
-	var direction := (target - start).normalized()
-	var mat := process_material as ParticleProcessMaterial
+	var mat = process_material as ParticleProcessMaterial
 	
-	if mat:
-		mat.direction = Vector3(direction.x, direction.y, 0.0)
+	
 	
 	restart()
 	emitting = true
@@ -152,8 +152,8 @@ position = Vector2(0.38, 0)
 rotation = 1.5707964
 scale = Vector2(0.015, 0.015)
 emitting = false
-texture = ExtResource("10_y4r1p")
-lifetime = 0.01
+texture = SubResource("CompressedTexture2D_ur7pv")
+lifetime = 0.09999999999999999
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_d2wvv")
 script = SubResource("GDScript_3v2ag")
