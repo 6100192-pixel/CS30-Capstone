@@ -61,41 +61,6 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ur7pv"]
-load_path = "res://.godot/imported/muzleflash.webp-cd912eb889c17ae3c0f66ebf424b1737.ctex"
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d2wvv"]
-particle_flag_disable_z = true
-particle_flag_damping_as_friction = true
-direction = Vector3(0, -10, 0)
-initial_velocity_min = 1000.0
-initial_velocity_max = 1000.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.099999994
-scale_max = 0.099999994
-
-[sub_resource type="GDScript" id="GDScript_3v2ag"]
-script/source = "extends GPUParticles2D
-
-func _ready() -> void:
-	# Ensures changing direction doesn't affect other instances of this effect
-	if process_material:
-		process_material = process_material.duplicate()
-
-func spawnparticles(start: Vector2, target: Vector2) -> void:
-	position = start
-
-	var direction = (target - start).normalized()
-
-	var material = process_material as ParticleProcessMaterial
-	material.direction = Vector3(direction.x, direction.y, 0)
-
-	
-	
-	restart()
-	emitting = true
-"
-
 [node name="Player" type="CharacterBody2D" unique_id=1133249345]
 script = ExtResource("1_g2els")
 
@@ -115,7 +80,7 @@ target_position = Vector2(2000, 0)
 script = ExtResource("3_qhqgy")
 raycast = NodePath(".")
 tracer = NodePath("render")
-particle = NodePath("Muzzleflash")
+particle = NodePath("")
 
 [node name="gunFire1" type="AudioStreamPlayer2D" parent="equippedWeapon" unique_id=378768799]
 stream = ExtResource("4_smehm")
@@ -149,16 +114,5 @@ default_color = Color(1, 1, 0, 0.60784316)
 [node name="reloadTimer" type="Timer" parent="equippedWeapon" unique_id=1960302680]
 wait_time = 2.3
 one_shot = true
-
-[node name="Muzzleflash" type="GPUParticles2D" parent="equippedWeapon" unique_id=1825654353]
-position = Vector2(0.38, 0)
-rotation = 1.5707964
-scale = Vector2(0.015, 0.015)
-emitting = false
-texture = SubResource("CompressedTexture2D_ur7pv")
-lifetime = 0.1
-one_shot = true
-process_material = SubResource("ParticleProcessMaterial_d2wvv")
-script = SubResource("GDScript_3v2ag")
 
 [connection signal="timeout" from="equippedWeapon/reloadTimer" to="equippedWeapon" method="_on_reload_timer_timeout"]
