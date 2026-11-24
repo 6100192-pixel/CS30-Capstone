@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci1hsisdwdeco"
-path="res://.godot/imported/muzleflash.webp-cd912eb889c17ae3c0f66ebf424b1737.ctex"
+uid="uid://cd8qnujilivo5"
+path="res://.godot/imported/muzzleflash.webp-e5d19346e83839c49348b080e6781cf7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/muzleflash.webp"
-dest_files=["res://.godot/imported/muzleflash.webp-cd912eb889c17ae3c0f66ebf424b1737.ctex"]
+source_file="res://assets/muzzleflash.webp"
+dest_files=["res://.godot/imported/muzzleflash.webp-e5d19346e83839c49348b080e6781cf7.ctex"]
 
 [params]
 

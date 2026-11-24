@@ -2,7 +2,7 @@ extends RayCast2D
 
 @export var raycast: Node
 @export var tracer: Node
-@export var particle: Node
+@export var muzzleflash: Node
 
 var bulletShooted = false
 var canShoot = true
@@ -49,6 +49,7 @@ func _process(delta: float) -> void:
 		tracer.add_point(collision_local)
 
 	tracer.visible = bulletShooted
+	muzzleflash.visible = bulletShooted
 	bulletShooted = false
 
 func _on_reload_timer_timeout() -> void:

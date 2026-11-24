@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://dqgqunyhce1oa" path="res://assets/Item_handgun_rack.wav.mp3" id="7_d2wvv"]
 [ext_resource type="AudioStream" uid="uid://6yo1t2n1smgi" path="res://assets/Item_handgun_reload_onehand.wav.mp3" id="8_3v2ag"]
 [ext_resource type="AudioStream" uid="uid://ctf8axmu8slo8" path="res://assets/item_handgun_empty.mp3" id="9_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://cd8qnujilivo5" path="res://assets/muzzleflash.webp" id="10_d2wvv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mljij"]
 radius = 16.124516
@@ -69,18 +70,19 @@ z_index = 1
 shape = SubResource("CircleShape2D_mljij")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2037982037]
+z_index = 1
 rotation = -1.5707964
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_0hqvs")
 animation = &"walk"
 autoplay = "idle"
 
-[node name="equippedWeapon" type="RayCast2D" parent="." unique_id=818989030 node_paths=PackedStringArray("raycast", "tracer", "particle")]
+[node name="equippedWeapon" type="RayCast2D" parent="." unique_id=818989030 node_paths=PackedStringArray("raycast", "tracer", "muzzleflash")]
 target_position = Vector2(2000, 0)
 script = ExtResource("3_qhqgy")
 raycast = NodePath(".")
 tracer = NodePath("render")
-particle = NodePath("")
+muzzleflash = NodePath("muzzleFlash")
 
 [node name="gunFire1" type="AudioStreamPlayer2D" parent="equippedWeapon" unique_id=378768799]
 stream = ExtResource("4_smehm")
@@ -114,5 +116,12 @@ default_color = Color(1, 1, 0, 0.60784316)
 [node name="reloadTimer" type="Timer" parent="equippedWeapon" unique_id=1960302680]
 wait_time = 2.3
 one_shot = true
+
+[node name="muzzleFlash" type="Sprite2D" parent="equippedWeapon" unique_id=733930578]
+visible = false
+self_modulate = Color(1, 1, 1, 0.4)
+position = Vector2(40, 2.000002)
+scale = Vector2(0.058714136, 0.05871414)
+texture = ExtResource("10_d2wvv")
 
 [connection signal="timeout" from="equippedWeapon/reloadTimer" to="equippedWeapon" method="_on_reload_timer_timeout"]

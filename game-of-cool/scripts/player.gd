@@ -33,7 +33,6 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta:float) -> void:
 	healthPercentage = remap(currentHealth, 0, maxHealth, 0, 100)
-	print(healthPercentage)
 	if currentHealth < 0:
 		currentHealth = 0
 	if currentHealth > maxHealth:

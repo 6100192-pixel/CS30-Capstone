@@ -97,6 +97,7 @@ script = ExtResource("5_iywne")
 player = NodePath("../Player")
 
 [node name="Player" parent="." unique_id=1133249345 instance=ExtResource("1_uwrxv")]
+z_index = 1
 position = Vector2(1022, 329)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1015321649 node_paths=PackedStringArray("player")]
