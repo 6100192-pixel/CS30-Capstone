@@ -6,6 +6,7 @@ extends RayCast2D
 
 var bulletShooted = false
 var canShoot = true
+var damage = 20
 var magazineSize = 12
 var bulletsLeft = magazineSize
 var maxSpareBullets = 60

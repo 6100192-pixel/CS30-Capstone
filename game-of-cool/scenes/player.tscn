@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://dqgqunyhce1oa" path="res://assets/Item_handgun_rack.wav.mp3" id="7_d2wvv"]
 [ext_resource type="AudioStream" uid="uid://6yo1t2n1smgi" path="res://assets/Item_handgun_reload_onehand.wav.mp3" id="8_3v2ag"]
 [ext_resource type="AudioStream" uid="uid://ctf8axmu8slo8" path="res://assets/item_handgun_empty.mp3" id="9_ur7pv"]
-[ext_resource type="Texture2D" uid="uid://cd8qnujilivo5" path="res://assets/muzzleflash.webp" id="10_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://c4a0qb1yckkys" path="res://assets/smallFlash.png" id="10_y4r1p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mljij"]
 radius = 16.124516
@@ -118,10 +118,10 @@ wait_time = 2.3
 one_shot = true
 
 [node name="muzzleFlash" type="Sprite2D" parent="equippedWeapon" unique_id=733930578]
-visible = false
-self_modulate = Color(1, 1, 1, 0.4)
-position = Vector2(40, 2.000002)
-scale = Vector2(0.058714136, 0.05871414)
-texture = ExtResource("10_d2wvv")
+self_modulate = Color(1, 1, 1, 0.7607843)
+position = Vector2(51, 2)
+rotation = -1.5707964
+scale = Vector2(0.339, 0.339)
+texture = ExtResource("10_y4r1p")
 
 [connection signal="timeout" from="equippedWeapon/reloadTimer" to="equippedWeapon" method="_on_reload_timer_timeout"]

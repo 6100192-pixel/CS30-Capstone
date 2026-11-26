@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://4uf18kitqhnm"]
 
 [ext_resource type="Texture2D" uid="uid://dv0rc1ocxfrmh" path="res://assets/gray bg.png" id="1_iywne"]
+[ext_resource type="PackedScene" uid="uid://ct4si5b6pgsrq" path="res://scenes/nightbound.tscn" id="1_trtic"]
 [ext_resource type="PackedScene" uid="uid://bjemun2ne6iaj" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://dhedhgv1us288" path="res://assets/background.png" id="2_gee14"]
 [ext_resource type="Script" uid="uid://bqwx640feojdx" path="res://scripts/healpad.gd" id="3_kvpfn"]
@@ -26,6 +27,7 @@ size = Vector2(148, 104)
 [node name="Game" type="Node2D" unique_id=2094005643]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1892922169]
+z_index = -10
 scale = Vector2(2.574944, 1.4474273)
 texture = ExtResource("1_iywne")
 centered = false
@@ -99,6 +101,10 @@ player = NodePath("../Player")
 [node name="Player" parent="." unique_id=1133249345 instance=ExtResource("1_uwrxv")]
 z_index = 1
 position = Vector2(1022, 329)
+
+[node name="Nightbound" parent="." unique_id=623897614 instance=ExtResource("1_trtic")]
+z_index = 1
+position = Vector2(573, 107)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1015321649 node_paths=PackedStringArray("player")]
 position = Vector2(581, 325)

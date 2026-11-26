@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://ct4si5b6pgsrq"]
+
+[ext_resource type="Texture2D" uid="uid://b2bdfb1hngc51" path="res://assets/spritesheet.png" id="1_cbjj0"]
+[ext_resource type="Script" uid="uid://4iiys3aekbs1" path="res://scenes/nightbound.gd" id="1_xlarr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gjp5x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlarr"]
+atlas = ExtResource("1_cbjj0")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0sx4"]
+atlas = ExtResource("1_cbjj0")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds8e8"]
+atlas = ExtResource("1_cbjj0")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20c02"]
+atlas = ExtResource("1_cbjj0")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lpbta"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlarr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0sx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ds8e8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20c02")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Nightbound" type="CharacterBody2D" unique_id=623897614]
+rotation = -1.5707964
+scale = Vector2(0.515, 0.515)
+script = ExtResource("1_xlarr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1698500057]
+z_index = 9
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_gjp5x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=593536978]
+self_modulate = Color(1, 0.1882353, 1, 1)
+sprite_frames = SubResource("SpriteFrames_lpbta")
